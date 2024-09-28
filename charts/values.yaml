@@ -109,6 +109,8 @@ tolerations: []
 
 affinity: {}
 
+extraManifests: []
+
 # ENVs
 TINYBIRD_API_URL: "https://default-tinybird-api-url.com"
 EVALUATOR_URL: "https://default-evaluator-url.com"
