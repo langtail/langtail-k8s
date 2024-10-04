@@ -28,17 +28,11 @@ spec:
       {{- end }}
       containers:
         - name: mysql-migrations
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          args:
-            - pnpm 
-            - run
-            - db:push
+          image: "{{ .Values.migrationsImage.repository }}:{{ .Values.migrationsImage.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.migrationsImage.pullPolicy }}
           envFrom:
-            - configMapRef:
-                name: {{ include "langtail.fullname" . }}-configmap
             - secretRef:
-                name: {{ include "langtail.fullname" . }}-secret
+                name: {{ include "langtail.fullname" . }}-migrations-secret
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
