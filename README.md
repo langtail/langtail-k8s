@@ -59,29 +59,27 @@ Below is a list of all available configuration parameters that can be set during
 
 | Parameter                      | Description                                      | Default Value                                    |
 |--------------------------------|--------------------------------------------------|--------------------------------------------------|
-| `EVALUATOR_URL`                | URL for the Evaluator                            | `https://default-evaluator-url.com`              |
-| `EVALUATOR_API_KEY`            | API key for the Evaluator                        | `default-evaluator-api-key`                      |
-| `AUTH_URL`                     | URL for the authentication service               | `https://default-auth-url.com`                   |
-| `AUTH_SECRET`                  | Authentication secret. **Must be generated**.    | `default-auth-secret`                            |
-| `DATABASE_URL`                 | Database connection URL                          | `postgresql://user:password@localhost:5432/database` |
-| `MIGRATIONS_DATABASE_URL`      | Database connection URL for migrations           | `postgresql://user:password@localhost:5432/database` |
-| `PRISMA_FIELD_ENCRYPTION_KEY`  | Encryption key for Prisma fields. **Must be generated**. | `default-prisma-field-encryption-key`            |
+| `SMTP_URL`                     | SMTP connection URL                              | `smtp://user:password@smtp.example.com:587`      |
+| `EMAIL_FROM`                   | Default email address                            | `default@example.com`                            |
+| `EMAIL_VERIFICATION_SECRET`    | Secret for email verification **Must be generated**                    | `default-email-verification-secret`              |
 | `JWT_PRIVATE`                  | JWT private key. **Must be generated**.          | `default-jwt-private-key`                        |
 | `JWT_PUBLIC`                   | JWT public key. **Must be generated**.           | `default-jwt-public-key`                         |
 | `JWT_SIGNING_KEY`              | JWT signing key. **Must be generated**.          | `default-jwt-signing-key`                        |
+| `AUTH_URL`                     | URL for the authentication service               | `https://default-auth-url.com`                   |
+| `AUTH_SECRET`                  | Authentication secret. **Must be generated**.    | `default-auth-secret`                            |
+| `DATABASE_URL`                 | Database connection URL                          | `postgresql://user:password@localhost:5432/database` |
+| `MIGRATIONS_DATABASE_URL`      | Database connection URL for migrations. Can be the same as DATABASE_URL, but in case you want to use a different user to apply migrations, there's a way | `postgresql://user:password@localhost:5432/database` |
+| `PRISMA_FIELD_ENCRYPTION_KEY`  | Encryption key for Prisma fields. **Must be generated**. | `default-prisma-field-encryption-key`            |
+| `EVALUATOR_URL`                | URL for the Evaluator                            | `https://default-evaluator-url.com`              |
+| `EVALUATOR_API_KEY`            | API key for the Evaluator                        | `default-evaluator-api-key`                      |
 | `LANGTAIL_MAGIC_TOKEN`         | Magic token for Langtail                         | `default-langtail-magic-token`                   |
 | `LANGTAIL_MAGIC_TESTS_TOKEN`   | Magic tests token for Langtail                   | `default-langtail-magic-tests-token`             |
 | `IMAGES_AWS_SECRET_ACCESS_KEY` | AWS secret access key for images                 | `default-aws-secret-access-key`                  |
-| `SMTP_URL`                     | SMTP connection URL                              | `smtp://user:password@smtp.example.com:587`      |
-| `EMAIL_VERIFICATION_SECRET`    | Secret for email verification                    | `default-email-verification-secret`              |
-| `EMAIL_FROM`                   | Default email address                            | `default@example.com`                            |
 | `SENTRY_ENABLED`               | Flag to enable Sentry                            | `true`                                           |
 | `GOOGLE_ID`                    | Google OAuth client ID                           | `default-google-id`                              |
 | `GOOGLE_SECRET`                | Google OAuth client secret                       | `default-google-secret`                          |
 | `GITHUB_ID`                    | GitHub OAuth client ID                           | `default-github-id`                              |
 | `GITHUB_SECRET`                | GitHub OAuth client secret                       | `default-github-secret`                          |
-| `STRIPE_SECRET_KEY`            | Stripe secret key for payment integration        | `default-stripe-secret-key`                      |
-| `LOOPS_API_KEY`                | API key for Loops integration                    | `default-loops-api-key`                          |
 
 ### SSO Configuration
 
