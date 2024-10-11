@@ -1,57 +1,101 @@
 # Langtail Helm Chart
-This repository contains Helm charts for deploying Langtail application on Kubernetes.
+
+This repository contains Helm charts for deploying the Langtail application on Kubernetes.
 
 ## Helm Chart
 
 ### Installation
-```
+
+To install the Langtail Helm chart:
+
+```bash
 helm repo add langtail https://langtail.github.com/langtail-k8s
 helm repo update
 helm install langtail langtail/langtail
 ```
 
 ### Upgrading
-```
+
+To upgrade an existing deployment:
+
+```bash
 helm repo update
 helm upgrade langtail langtail/langtail
 ```
 
+#### Upgrade Process
+
+The upgrade process in the Langtail Helm chart includes **Helm hooks** that ensure database migrations are applied **before** the new version of the application is deployed. This means:
+
+- A **migration job** is triggered as part of the Helm upgrade process.
+- The job ensures that any necessary database changes are made prior to spinning up the new version of the application.
+- This mechanism ensures smooth transitions between versions and avoids potential database compatibility issues.
+
+You don't need to run migrations manually — the Helm hooks handle this automatically during each upgrade.
+
 ### Configuration
 
-TODO
-- PRISMA_FIELD_ENCRYPTION_KEY: how to generate
-- JWT_*: How to generate all of them
+Below is a list of all available configuration parameters that can be set during installation or upgrade.
+
+#### Secrets and Key Generation
+
+- **AUTH_SECRET**: To generate a secure authentication secret, run:
+  ```bash
+  openssl rand -base64 32
+  ```
+
+- **JWT_PRIVATE** and **JWT_PUBLIC**: These are required for signing and verifying JWTs. You can generate them using [https://mkjwk.org/](https://mkjwk.org/):
+  - Select **EC** as the key type.
+  - Use **P-256** as the curve.
+
+- **JWT_SIGNING_KEY**: You can generate the JWT signing key using the same tool:
+  - Select **oct** as the key type.
+  - Use **Signature** for the key usage.
+
+- **PRISMA_FIELD_ENCRYPTION_KEY**: This key is used to encrypt fields in Prisma. Generate it with the following command:
+  ```bash
+  openssl rand -base64 32
+  ```
 
 | Parameter                      | Description                                      | Default Value                                    |
 |--------------------------------|--------------------------------------------------|--------------------------------------------------|
 | `EVALUATOR_URL`                | URL for the Evaluator                            | `https://default-evaluator-url.com`              |
 | `EVALUATOR_API_KEY`            | API key for the Evaluator                        | `default-evaluator-api-key`                      |
 | `AUTH_URL`                     | URL for the authentication service               | `https://default-auth-url.com`                   |
-| `AUTH_SECRET`                  | Authentication secret                            | `default-auth-secret`                            |
+| `AUTH_SECRET`                  | Authentication secret. **Must be generated**.    | `default-auth-secret`                            |
 | `DATABASE_URL`                 | Database connection URL                          | `postgresql://user:password@localhost:5432/database` |
-| `PRISMA_FIELD_ENCRYPTION_KEY`  | Encryption key for Prisma fields                 | `default-prisma-field-encryption-key`            |
-| `JWT_PRIVATE`                  | JWT private key                                  | `default-jwt-private-key`                        |
-| `JWT_PUBLIC`                   | JWT public key                                   | `default-jwt-public-key`                         |
-| `JWT_SIGNING_KEY`              | JWT signing key                                  | `default-jwt-signing-key`                        |
+| `MIGRATIONS_DATABASE_URL`      | Database connection URL for migrations           | `postgresql://user:password@localhost:5432/database` |
+| `PRISMA_FIELD_ENCRYPTION_KEY`  | Encryption key for Prisma fields. **Must be generated**. | `default-prisma-field-encryption-key`            |
+| `JWT_PRIVATE`                  | JWT private key. **Must be generated**.          | `default-jwt-private-key`                        |
+| `JWT_PUBLIC`                   | JWT public key. **Must be generated**.           | `default-jwt-public-key`                         |
+| `JWT_SIGNING_KEY`              | JWT signing key. **Must be generated**.          | `default-jwt-signing-key`                        |
 | `LANGTAIL_MAGIC_TOKEN`         | Magic token for Langtail                         | `default-langtail-magic-token`                   |
 | `LANGTAIL_MAGIC_TESTS_TOKEN`   | Magic tests token for Langtail                   | `default-langtail-magic-tests-token`             |
 | `IMAGES_AWS_SECRET_ACCESS_KEY` | AWS secret access key for images                 | `default-aws-secret-access-key`                  |
 | `SMTP_URL`                     | SMTP connection URL                              | `smtp://user:password@smtp.example.com:587`      |
 | `EMAIL_VERIFICATION_SECRET`    | Secret for email verification                    | `default-email-verification-secret`              |
 | `EMAIL_FROM`                   | Default email address                            | `default@example.com`                            |
-| `SENTRY_ENABLED`               | Flag to enable Sentry                            | `true`                                          |
-| `TINYBIRD_API_URL`             | TODO: REMOVE                                     | `https://default-tinybird-api-url.com`           |
-| `CLERK_SECRET_KEY`             | TODO: REMOVE                                     | `default-clerk-secret-key`                       |
-| `CANNY_JWT_KEY`                | TODO: REMOVE                                     | `default-canny-jwt-key`                          |
-| `NEXT_PUBLIC_REWARDFUL_API_KEY`| TODO: REMOVE                                     | `default-rewardful-api-key`                      |
-| `TINYBIRD_API_TOKEN`           | TODO: REMOVE                                     | `default-tinybird-api-token`                     |
-| `TINYBIRD_API_KEY`             | TODO: REMOVE                                     | `default-tinybird-api-key`                       |
-| `STRIPE_SECRET_KEY`            | TODO: REMOVE                                     | `default-stripe-secret-key`                      |
-| `LOOPS_API_KEY`                | TODO: REMOVE                                     | `default-loops-api-key`                          |
+| `SENTRY_ENABLED`               | Flag to enable Sentry                            | `true`                                           |
+| `GOOGLE_ID`                    | Google OAuth client ID                           | `default-google-id`                              |
+| `GOOGLE_SECRET`                | Google OAuth client secret                       | `default-google-secret`                          |
+| `GITHUB_ID`                    | GitHub OAuth client ID                           | `default-github-id`                              |
+| `GITHUB_SECRET`                | GitHub OAuth client secret                       | `default-github-secret`                          |
+| `STRIPE_SECRET_KEY`            | Stripe secret key for payment integration        | `default-stripe-secret-key`                      |
+| `LOOPS_API_KEY`                | API key for Loops integration                    | `default-loops-api-key`                          |
 
+### SSO Configuration
 
-### SSO
+To configure single sign-on (SSO) for Google and GitHub, set the following environment variables:
+
 | Provider                       | Variables                      |                    
 |--------------------------------|--------------------------------|
-| Google                         | `GOOGLE_ID`<br>`GOOGLE_SECRET` |
-| Github                         | `GITHUB_ID`<br>`GITHUB_SECRET` |
+| **Google**                     | `GOOGLE_ID`<br>`GOOGLE_SECRET` |
+| **GitHub**                     | `GITHUB_ID`<br>`GITHUB_SECRET` |
+
+For instructions on generating OAuth credentials, refer to:
+
+- [Google Provider Documentation](https://next-auth.js.org/providers/google)
+- [GitHub Provider Documentation](https://next-auth.js.org/providers/github)
+
+### Adding Extra Manifests
+The Helm chart includes an `extraManifests` field in values.yaml, which allows you to inject additional Kubernetes resources into your deployment. This is useful for adding custom resources like ConfigMaps, Secrets, or any other Kubernetes manifests that are not included in the default chart.

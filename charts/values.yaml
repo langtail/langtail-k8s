@@ -5,16 +5,16 @@
 replicaCount: 1
 
 image:
-  repository: tomasrebro33/langtail
+  repository: langtail/langtail
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "standalone"
+  tag: "latest"
 
 migrationsImage:
-  repository: tomasrebro33/langtail
+  repository: langtail/langtail-db-migrations
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "db-migrations"
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -129,8 +129,8 @@ EMAIL_FROM: "default@example.com"
 IS_E2E_TEST: "false"
 
 # Secret ENVs
-DATABASE_URL: "postgresql://user:password@localhost:5432/database"
-MIGRATIONS_DATABASE_URL: "postgresql://user:password@localhost:5432/database"
+DATABASE_URL: "mysql://user:password@localhost:3306/database"
+MIGRATIONS_DATABASE_URL: "mysql://user:password@localhost:3306/database"
 CLERK_SECRET_KEY: "default-clerk-secret-key"
 PRISMA_FIELD_ENCRYPTION_KEY: "default-prisma-field-encryption-key"
 TINYBIRD_API_TOKEN: "default-tinybird-api-token"
