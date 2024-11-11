@@ -2,6 +2,14 @@
 
 This repository contains Helm charts for deploying the Langtail application on Kubernetes.
 
+© 2024 Langtail. All rights reserved.
+
+This project is available only under a commercial license from Langtail. 
+Unauthorized copying, modification, distribution, or use of this software is strictly prohibited.
+
+To obtain a license or discuss commercial usage, please contact:
+hi@langtail.com
+
 ## Helm Chart
 
 ### Installation
