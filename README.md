@@ -75,13 +75,9 @@ Below is a list of all available configuration parameters that can be set during
 | `JWT_SIGNING_KEY`              | JWT signing key. **Must be generated**.          | `default-jwt-signing-key`                        |
 | `AUTH_URL`                     | URL for the authentication service               | `https://default-auth-url.com`                   |
 | `AUTH_SECRET`                  | Authentication secret. **Must be generated**.    | `default-auth-secret`                            |
-| `DATABASE_URL`                 | Database connection URL                          | `postgresql://user:password@localhost:5432/database` |
-| `MIGRATIONS_DATABASE_URL`      | Database connection URL for migrations. Can be the same as DATABASE_URL, but in case you want to use a different user to apply migrations, there's a way | `postgresql://user:password@localhost:5432/database` |
+| `DATABASE_URL`                 | Database connection URL                          | `mysql://user:password@localhost:5432/database` |
+| `MIGRATIONS_DATABASE_URL`      | Database connection URL for migrations. Can be the same as DATABASE_URL, but in case you want to use a different user to apply migrations, there's a way | `mysql://user:password@localhost:5432/database` |
 | `PRISMA_FIELD_ENCRYPTION_KEY`  | Encryption key for Prisma fields. **Must be generated**. | `default-prisma-field-encryption-key`            |
-| `EVALUATOR_URL`                | URL for the Evaluator                            | `https://default-evaluator-url.com`              |
-| `EVALUATOR_API_KEY`            | API key for the Evaluator                        | `default-evaluator-api-key`                      |
-| `LANGTAIL_MAGIC_TOKEN`         | Magic token for Langtail                         | `default-langtail-magic-token`                   |
-| `LANGTAIL_MAGIC_TESTS_TOKEN`   | Magic tests token for Langtail                   | `default-langtail-magic-tests-token`             |
 | `IMAGES_AWS_SECRET_ACCESS_KEY` | AWS secret access key for images                 | `default-aws-secret-access-key`                  |
 | `SENTRY_ENABLED`               | Flag to enable Sentry                            | `true`                                           |
 | `GOOGLE_ID`                    | Google OAuth client ID                           | `default-google-id`                              |

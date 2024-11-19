@@ -8,13 +8,13 @@ image:
   repository: langtail/langtail
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  # tag: "latest"
 
 migrationsImage:
   repository: langtail/langtail-db-migrations
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  # tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -118,14 +118,13 @@ affinity: {}
 extraManifests: []
 
 # ENVs
-EVALUATOR_URL: "https://default-evaluator-url.com"
 SKIP_ENV_VALIDATION: "false"
 SENTRY_ENABLED: "true"
 AUTH_URL: "https://default-auth-url.com"
+PROMPT_API_URL: "http://your-domain.com/api/prompt-api"
 GITHUB_ID: "default-github-id"
 GOOGLE_ID: "default-google-id"
 EMAIL_FROM: "default@example.com"
-IS_E2E_TEST: "false"
 
 # Secret ENVs
 DATABASE_URL: "mysql://user:password@localhost:3306/database"

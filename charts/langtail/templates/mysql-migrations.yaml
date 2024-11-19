@@ -33,6 +33,8 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ include "langtail.fullname" . }}-migrations-secret
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
