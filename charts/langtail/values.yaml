@@ -121,12 +121,13 @@ extraManifests: []
 SKIP_ENV_VALIDATION: "false"
 SENTRY_ENABLED: "true"
 AUTH_URL: "https://default-auth-url.com"
-PROMPT_API_URL: "http://your-domain.com/api/prompt-api"
+PROMPT_API_URL: "http://langtail:3000/api/prompt-api" # Using the default service name and port
 GITHUB_ID: "default-github-id"
 GOOGLE_ID: "default-google-id"
 EMAIL_FROM: "default@example.com"
 
 # Secret ENVs
+LANGTAIL_LICENSE_KEY: "your-license-key"
 DATABASE_URL: "mysql://user:password@localhost:3306/database"
 MIGRATIONS_DATABASE_URL: "mysql://user:password@localhost:3306/database"
 PRISMA_FIELD_ENCRYPTION_KEY: "default-prisma-field-encryption-key"

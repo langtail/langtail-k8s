@@ -67,6 +67,7 @@ Below is a list of all available configuration parameters that can be set during
 
 | Parameter                      | Description                                      | Default Value                                    |
 |--------------------------------|--------------------------------------------------|--------------------------------------------------|
+| `LANGTAIL_LICENSE_KEY`         | Langtail license key - contact us at hi@langtail.com   | `your-license-key`                              |
 | `SMTP_URL`                     | SMTP connection URL                              | `smtp://user:password@smtp.example.com:587`      |
 | `EMAIL_FROM`                   | Default email address                            | `default@example.com`                            |
 | `EMAIL_VERIFICATION_SECRET`    | Secret for email verification **Must be generated**                    | `default-email-verification-secret`              |
@@ -75,6 +76,7 @@ Below is a list of all available configuration parameters that can be set during
 | `JWT_SIGNING_KEY`              | JWT signing key. **Must be generated**.          | `default-jwt-signing-key`                        |
 | `AUTH_URL`                     | URL for the authentication service               | `https://default-auth-url.com`                   |
 | `AUTH_SECRET`                  | Authentication secret. **Must be generated**.    | `default-auth-secret`                            |
+| `PROMPT_API_URL`                | URL for the prompt API service used internally by Langtail backend                | `http://langtail:3000/api/prompt-api`             |
 | `DATABASE_URL`                 | Database connection URL                          | `mysql://user:password@localhost:5432/database` |
 | `MIGRATIONS_DATABASE_URL`      | Database connection URL for migrations. Can be the same as DATABASE_URL, but in case you want to use a different user to apply migrations, there's a way | `mysql://user:password@localhost:5432/database` |
 | `PRISMA_FIELD_ENCRYPTION_KEY`  | Encryption key for Prisma fields. **Must be generated**. | `default-prisma-field-encryption-key`            |
