@@ -118,7 +118,6 @@ affinity: {}
 extraManifests: []
 
 # ENVs
-TINYBIRD_API_URL: "https://default-tinybird-api-url.com"
 EVALUATOR_URL: "https://default-evaluator-url.com"
 SKIP_ENV_VALIDATION: "false"
 SENTRY_ENABLED: "true"
@@ -131,7 +130,6 @@ IS_E2E_TEST: "false"
 # Secret ENVs
 DATABASE_URL: "mysql://user:password@localhost:3306/database"
 MIGRATIONS_DATABASE_URL: "mysql://user:password@localhost:3306/database"
-CLERK_SECRET_KEY: "default-clerk-secret-key"
 PRISMA_FIELD_ENCRYPTION_KEY: "default-prisma-field-encryption-key"
 TINYBIRD_API_TOKEN: "default-tinybird-api-token"
 TINYBIRD_API_KEY: "default-tinybird-api-key"

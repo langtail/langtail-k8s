@@ -3,7 +3,6 @@ kind: ConfigMap
 metadata:
   name: {{ include "langtail.fullname" . }}-configmap
 data:
-  TINYBIRD_API_URL: {{ .Values.TINYBIRD_API_URL | toString | quote }}
   EVALUATOR_URL: {{ .Values.EVALUATOR_URL | toString | quote }}
   SKIP_ENV_VALIDATION: {{ .Values.SKIP_ENV_VALIDATION | toString | quote }}
   SENTRY_ENABLED: {{ .Values.SENTRY_ENABLED | toString | quote }}
