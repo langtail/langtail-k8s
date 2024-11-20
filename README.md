@@ -60,9 +60,10 @@ Below is a list of all available configuration parameters that can be set during
   - Select **oct** as the key type.
   - Use **Signature** for the key usage.
 
-- **PRISMA_FIELD_ENCRYPTION_KEY**: This key is used to encrypt fields in Prisma. Generate it with the following command:
+- **PRISMA_FIELD_ENCRYPTION_KEY**: This key is used to encrypt fields in Prisma. Generate it via a web UI: cloak.47ng.com or via the command line:
   ```bash
-  openssl rand -base64 32
+  npm install -g @47ng/cloak
+  cloak generate
   ```
 
 | Parameter                      | Description                                      | Default Value                                    |
