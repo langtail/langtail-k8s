@@ -32,7 +32,7 @@ spec:
           imagePullPolicy: {{ .Values.migrationsImage.pullPolicy }}
           envFrom:
             - secretRef:
-                name: {{ include "langtail.fullname" . }}-migrations-secret
+                name: {{ default (printf "%s-migrations-secret" (include "langtail.fullname" .)) .Values.secretRef.migrationName }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

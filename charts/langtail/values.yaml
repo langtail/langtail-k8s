@@ -140,3 +140,12 @@ GOOGLE_SECRET: "default-google-secret"
 JWT_SIGNING_KEY: "default-jwt-signing-key"
 SMTP_URL: "smtp://user:password@smtp.example.com:587"
 EMAIL_VERIFICATION_SECRET: "default-email-verification-secret"
+
+# Whether to manage Kubernetes secrets
+# You can set this to false and manage secrets outside of the chart, just provide secret names in secretRef.name and secretRef.migrationName
+manageSecret: true
+
+# Secret reference overrides
+secretRef:
+  name: ""  # If empty, defaults to "{{ include "langtail.fullname" . }}-secret"
+  migrationName: ""  # If empty, defaults to "{{ include "langtail.fullname" . }}-migrations-secret"

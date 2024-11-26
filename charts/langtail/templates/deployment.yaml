@@ -52,7 +52,7 @@ spec:
             - configMapRef:
                 name: {{ include "langtail.fullname" . }}-configmap
             - secretRef:
-                name: {{ include "langtail.fullname" . }}-secret
+                name: {{ default (printf "%s-secret" (include "langtail.fullname" .)) .Values.secretRef.name }}
       {{- with .Values.volumes }}
       volumes:
         {{- toYaml . | nindent 8 }}
