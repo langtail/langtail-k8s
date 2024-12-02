@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   langtail:
   - apiVersion: v2
+    appVersion: 1.0.3
+    created: "2024-12-02T12:31:53.04830519Z"
+    description: A langtail self-hosting Helm chart for Kubernetes
+    digest: 345b6ce3fa9b9db45554e808f4f6a1a1ba0adbef42f2fce3a87d62db3c15df79
+    name: langtail
+    type: application
+    urls:
+    - https://github.com/langtail/langtail-k8s/releases/download/langtail-0.2.7/langtail-0.2.7.tgz
+    version: 0.2.7
+  - apiVersion: v2
     appVersion: 1.0.0
     created: "2024-11-19T16:40:03.251857333Z"
     description: A langtail self-hosting Helm chart for Kubernetes
@@ -31,4 +41,4 @@ entries:
     urls:
     - https://github.com/langtail/langtail-k8s/releases/download/langtail-0.1.2/langtail-0.1.2.tgz
     version: 0.1.2
-generated: "2024-11-19T16:40:03.251869827Z"
+generated: "2024-12-02T12:31:53.048321951Z"
