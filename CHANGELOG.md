@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.8
+
+- Using Langtail 1.0.4
+- Javascript assertions in tests are now working correctly
+
 ## 0.2.7
 
 - Using Langtail 1.0.3
