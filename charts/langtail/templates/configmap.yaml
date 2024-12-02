@@ -6,7 +6,9 @@ data:
   SKIP_ENV_VALIDATION: {{ .Values.SKIP_ENV_VALIDATION | toString | quote }}
   SENTRY_ENABLED: {{ .Values.SENTRY_ENABLED | toString | quote }}
   AUTH_URL: {{ .Values.AUTH_URL | toString | quote }}
-  PROMPT_API_URL: {{ .Values.PROMPT_API_URL | toString | quote }}
   GITHUB_ID: {{ .Values.GITHUB_ID | toString | quote }}
   GOOGLE_ID: {{ .Values.GOOGLE_ID | toString | quote }}
   EMAIL_FROM: {{ .Values.EMAIL_FROM | toString | quote }}
+
+  WEB_APP_INTERNAL_URL: {{ .Values.WEB_APP_INTERNAL_URL | toString | quote }}
+  PROMPT_API_URL: {{ .Values.PROMPT_API_URL | toString | quote }}

@@ -121,10 +121,13 @@ extraManifests: []
 SKIP_ENV_VALIDATION: "false"
 SENTRY_ENABLED: "true"
 AUTH_URL: "https://default-auth-url.com"
-PROMPT_API_URL: "http://langtail:3000/api/prompt-api" # Using the default service name and port
 GITHUB_ID: "default-github-id"
 GOOGLE_ID: "default-google-id"
 EMAIL_FROM: "default@example.com"
+
+# Internal URLs when Langtail needs to call itself
+WEB_APP_INTERNAL_URL: "http://langtail:3000" # Using the default service name and port
+PROMPT_API_URL: "http://langtail:3000/api/prompt-api" # Using the default service name and port
 
 # Secret ENVs
 LANGTAIL_LICENSE_KEY: "your-license-key"
